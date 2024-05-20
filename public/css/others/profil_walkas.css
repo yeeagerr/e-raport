@@ -1,0 +1,853 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+
+  --main-radius: 5px;
+  --main-padding: 5px;
+  --color-1: #0f1016;
+  --text-color: #f0f0f0;
+  --accent-color: #006aff;
+  /* fonts */
+  --font-poppins: Poppins;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-sm: 14px;
+  --font-size-45xl: 64px;
+  --font-size-19xl: 38px;
+  --font-size-32xl: 51px;
+  --font-size-xl: 20px;
+  --font-size-6xl: 25px;
+  --font-size-base: 16px;
+  --font-size-mini: 15px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-brown-100: #bd4040;
+  --color-brown-200: #961a1a;
+  --color-firebrick: #bc2020;
+  --color-gray: rgba(255, 255, 255, 0.6);
+
+  /* Paddings */
+  --padding-xl: 20px;
+  --padding-base: 16px;
+  --padding-9xl: 28px;
+  --padding-8xl: 27px;
+  --padding-36xl: 55px;
+  --padding-5xl: 24px;
+  --padding-6xs: 7px;
+  --padding-6xl: 25px;
+  --padding-10xl: 29px;
+  --padding-7xl: 26px;
+  --padding-12xs: 1px;
+  --padding-7xs: 6px;
+  --padding-mini: 15px;
+  --padding-5xs: 8px;
+  --padding-28xl: 47px;
+  --padding-53xl: 72px;
+
+  /* Border radiuses */
+  --br-xl: 20px;
+  --br-mini: 15px;
+  --br-6xl: 25px;
+  --br-11xl: 30px;
+    /* fonts */
+    --font-poppins: Poppins;
+    --font-inter: Inter;
+  
+    /* font sizes */
+    --font-size-3xs: 10px;
+    --font-size-base: 16px;
+    --font-size-5xl: 24px;
+    --font-size-6xl: 25px;
+    --font-size-xl: 20px;
+  
+    /* Colors */
+    --color-white: #fff;
+    --color-brown-100: #bd4040;
+    --color-brown-200: #961a1a;
+    --color-firebrick-100: #bc2020;
+    --color-firebrick-200: #af2121;
+  
+    /* Gaps */
+    --gap-2xs-3: 10.3px;
+  
+    /* Paddings */
+    --padding-30xl: 49px;
+    --padding-36xl: 55px;
+    --padding-30xl-8: 49.8px;
+    --padding-25xl: 44px;
+    --padding-xl: 20px;
+    --padding-10xs: 3px;
+    --padding-xs: 12px;
+    --padding-3xs: 10px;
+    --padding-4xs: 9px;
+    --padding-base: 16px;
+    --padding-13xl: 32px;
+    --padding-5xl: 24px;
+    --padding-3xs-3: 9.3px;
+    --padding-9xl: 28px;
+    --padding-8xl: 27px;
+    --padding-29xl: 48px;
+    --padding-6xl: 25px;
+  
+    /* Border radiuses */
+    --br-xl: 20px;
+    --br-mini: 15px;
+    --br-6xl: 25px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+    margin: 0;
+    line-height: normal;
+}
+.main-content{
+  padding-top: 40px;
+}
+.container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1.2fr 0.8fr;
+  grid-template-areas:
+    "nav nav nav nav"
+    "sidebar main main main"
+    "sidebar content1 content2 content3"
+    "sidebar content4 content5 content6"
+    "sidebar content7 content8 content9"
+    "footer content7 content8 contet9";
+  grid-gap: 1rem;
+  text-align: center;
+  color: white;
+}
+nav{
+  height: 155px;
+  background-color: #bc2020;
+
+  grid-area: nav;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 0 0 var(--br-xl) var(--br-xl);
+
+}
+.gambar{
+  position: absolute;
+  left: 40px;
+}
+
+.text1 h1{
+  left: 130px;
+  position: relative;
+  color: white;
+  font-size: 25px;
+}
+
+.links-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+nav a{
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+nav .home-link{
+  margin-right: auto;
+}
+nav svg{
+  fill: var(--text-color);
+}
+#sidebar-active{
+  display: none;
+}
+.open-sidebar-button, .close-sidebar-button{
+  display: none;
+}
+
+
+main {
+  grid-area: main;
+
+}
+
+#sidebar {
+  grid-area: sidebar;
+
+}
+
+#content1 {
+  grid-area: content1;
+}
+
+#content2 {
+  grid-area: content2;
+}
+
+#content3 {
+  grid-area: content3;
+}
+
+#content4 {
+  grid-area: content4;
+}
+
+#content5 {
+  grid-area: content5;
+}
+
+#content6 {
+  grid-area: content6;
+}
+
+#content7 {
+  grid-area: content7;
+}
+
+#content8 {
+  grid-area: content8;
+}
+
+#content39 {
+  grid-area: content9;
+}
+
+
+footer {
+  grid-area: footer;
+
+}
+
+a {
+  text-align: center;
+  display: block;
+  font-family: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+
+.background-pic-rectangle1,
+.vector-frame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+
+.background-pic-rectangle1 {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 9px 0 var(--padding-base);
+}
+
+.background-pic-rectangle,
+.vector-one {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.background-pic-rectangle {
+  width: 470px;
+  height: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  font-size: 10px;
+  font-family: var(--font-poppins);
+}
+
+.account-bar-child,
+.vector-one-child {
+  position: relative;
+  display: none;
+  max-width: 100%;
+}
+
+.vector-one-child {
+  width: 450px;
+  height: 1204px;
+  background-color: var(--color-white);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+}
+
+.vector-one {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 35px 63px 10px 62px;
+  gap: 35px 0;
+  z-index: 1;
+  
+}
+
+.account-bar,
+.update-account-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.account-bar {
+  border-radius: var(--br-mini);
+  background-color: var(--color-brown-200);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 48px var(--padding-base) 12px var(--padding-xl);
+  gap: 11px;
+  z-index: 2;
+}
+
+.selamat-datang-text-parent {
+  height: 78px;
+  width: 78px;
+  position: relative;
+}
+
+.selamat-datang-text {
+  position: absolute;
+  top: -0.1px;
+  left: 0;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.user-alt-fill-icon {
+  position: absolute;
+  top: 17.6px;
+  left: 17.7px;
+  border-radius: var(--br-mini);
+  width: 41.1px;
+  height: 41.1px;
+  z-index: 2;
+}
+
+.update-account-text {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-6xs) 0 0;
+  min-width: 130px;
+}
+
+.raport-siswa-ranking-profil-wa {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 46px 0;
+}
+
+.back-ground-pics-table {
+  width: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3px 0;
+}
+
+.selamat-datang-text {
+  position: absolute;
+  top: -0.1px;
+  left: 0;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.selamat-datang-text-parent {
+  height: 78px;
+  width: 78px;
+  position: relative;
+}
+
+.selamat-datang,
+.user-kelas-container {
+  position: relative;
+  z-index: 1;
+}
+
+.user-kelas-container {
+  align-self: stretch;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+}
+
+.spp-jauh-lebih-murah-vector {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  font-size: 11px;
+}
+
+.update-account {
+  width: 117.7px;
+  position: relative;
+  font-weight: 500;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.background-pic-rectangle1 {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 9px 0 var(--padding-base);
+}
+
+.vector-frame {
+  flex: 1;
+  flex-direction: column;
+  gap: 30px 0;
+}
+
+.raport-siswa-ranking-profil-wa1 {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-9xl) var(--padding-5xl) var(--padding-8xl)var(--padding-xl);
+  background-color: var(--color-brown-200);
+  align-self: stretch;
+  border-radius: var(--br-6xl);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.raport-siswa-ranking-profil-wa1:hover,
+.raport-siswa-ranking-profil-wa2:hover,
+.raport-siswa-ranking-profil-wa3:hover,
+.rectangle-parent:hover {
+  background-color: var(--color-brown-100);
+}
+
+.raport-siswa-ranking-profil-wa-child {
+  height: 85px;
+  width: 300px;
+  position: relative;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-brown-200);
+  display: none;
+}
+
+.raport-siswa {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: center;
+  z-index: 3;
+}
+
+.raport-siswa-ranking-profil-wa2 {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-9xl) var(--padding-5xl) var(--padding-8xl)var(--padding-xl);
+  background-color: var(--color-brown-200);
+  align-self: stretch;
+  border-radius: var(--br-6xl);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.raport-siswa-ranking-profil-wa-item {
+  height: 85px;
+  width: 300px;
+  position: relative;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-brown-200);
+  display: none;
+}
+
+.ranking {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: center;
+  z-index: 3;
+}
+
+.raport-siswa-ranking-profil-wa3 {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-9xl) var(--padding-5xl) var(--padding-8xl)
+    var(--padding-xl);
+  background-color: var(--color-brown-200);
+  align-self: stretch;
+  border-radius: var(--br-6xl);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  text-decoration: none;
+}
+
+.raport-siswa-ranking-profil-wa-inner {
+  height: 85px;
+  width: 300px;
+  position: relative;
+  border-radius: var(--br-6xl);
+  background-color: var(--color-brown-200);
+  display: none;
+}
+
+.profil-walikelas {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: center;
+  z-index: 3;
+}
+
+.table-atas-group,
+.table-atas-parent {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.table-atas {
+  align-self: stretch;
+  height: 50px;
+  border-radius: var(--br-xl) var(--br-xl) 0 0;
+  background-color: var(--color-brown-200);
+  z-index: 1;
+}
+.table-atas-group {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-13xl) var(--padding-xl) var(--padding-13xl)
+    var(--padding-5xl);
+  background-color: var(--color-firebrick-200);
+  border-radius: 0 0 var(--br-mini) var(--br-mini);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  flex-direction: row;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 2;
+  margin-top: -2px;
+}
+.table-atas-group:hover {
+  background-color: #d64747;
+}
+.table-atas-parent {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.profile-wali-kelas {
+  width: 240px;
+  position: relative;
+  font-size: var(--font-size-5xl);
+  display: inline-block;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+  z-index: 5;
+}
+.account-bar-child1,
+.account-bar1 {
+  border-radius: var(--br-mini);
+  background-color: var(--color-brown-200);
+}
+.account-bar1 {
+  flex: 1;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-30xl) var(--padding-base) 49px
+  var(--padding-25xl);
+  width: 320px;
+  box-sizing: border-box;
+  min-width: 225px;
+  z-index: 1;
+  text-align: left;
+}
+.account-bar-item {
+  height: 176.5px;
+  width: 300px;
+  position: relative;
+  border-radius: var(--br-mini);
+  background-color: var(--color-brown-200);
+  display: none;
+}
+.ellipse-parent {
+  height: 77.7px;
+  width: 77.7px;
+  position: relative;
+}
+.ellipse-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.user-alt-fill-icon1 {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  border-radius: var(--br-mini);
+  width: 41.1px;
+  height: 41.1px;
+  z-index: 2;
+}
+.account-bar-inner1,
+.frame-parent1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.account-bar-inner1 {
+  flex: 1;
+  padding: 4px 0 0;
+}
+.frame-parent1 {
+  align-self: stretch;
+  gap: 21px;
+}
+.edi-prayitno-spd-ppkn-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 8px;
+}
+.edi-prayitno-spd-container {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+  z-index: 1;
+  text-decoration: none;
+}
+.edi-prayitno-spd,
+.ppkn {
+  margin: 0;
+}
+.guru-mata-pelajaran {
+  width: 146px;
+  position: relative;
+  font-size: var(--font-size-3xs);
+  text-align: center;
+  display: inline-block;
+  z-index: 3;
+}
+.foto{
+  bottom: 50px;
+  position: relative;
+  display: flex;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas:
+      "nav"
+      "sidebar"
+      "main"
+      "content1"
+      "content2"
+      "content3"
+      "content4"
+      "content5"
+      "content6"
+      "content7"
+      "content8"
+      "content9"
+      "footer";
+  }
+  .main-content{
+    display: none;
+  }
+  .gambar{
+    display: none;
+   }
+   
+   .text1 h1{
+   display: none;
+   }
+   
+   nav{
+     border-radius: 0px;
+   }
+   .links-container{
+     flex-direction: column;
+     align-items: flex-start;
+ 
+     position: fixed;
+     top: 0;
+     right: -100%;
+     z-index: 10;
+     width: 300px;
+ 
+     background-color: var(--color-1);
+     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+     transition: 0.75s ease-out;
+   }
+   nav a{
+     box-sizing: border-box;
+     height: auto;
+     width: 100%;
+     padding: 20px 30px;
+     justify-content: flex-start;
+   }
+   .open-sidebar-button, .close-sidebar-button{
+     padding: 20px;
+     display: block;
+     float: inline-end;
+   }
+   #sidebar-active:checked ~ .links-container{
+     right: 0;
+   }
+   #sidebar-active:checked ~ #overlay{
+     height: 100%;
+     width: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 9;
+   }
+
+   .account-bar{
+    width: 130%;
+  }
+  .background-pic-rectangle{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .raport-siswa-ranking-profil-wa1 {
+   display: none;
+  }
+
+  .raport-siswa-ranking-profil-wa2{
+  display: none;
+  }
+  .raport-siswa-ranking-profil-wa3 {
+   display: none;
+  }
+
+  .container {
+    height: 1px;
+  }
+
+  nav{
+    height: 70px;
+    border-radius: 20px;
+  }
+
+  #content1{
+    position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+  }
+  #content2{
+   position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   }
+   #content3{
+   position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   }
+   #content4{
+   position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   }
+   #content5{
+   position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   }
+   #content6{
+   position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   }
+   #content7{
+   position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   }
+   #content8{
+   position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   }
+   #content9{
+   position: relative;
+    left: 5%;
+    width: 90%;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   }
+}
