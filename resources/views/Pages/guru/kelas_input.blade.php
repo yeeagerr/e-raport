@@ -76,7 +76,7 @@
                     </div>
 
                     <div id="content2">
-                        <div class="rectangle-group">
+                        <form class="rectangle-group">
                             <div class="vector-group">
                                 <div class="choose-file">Choose File</div>
                             </div>
@@ -85,7 +85,7 @@
                             </div>
                             <h3 class="input-nilai">Input Nilai</h3>
                             <h3 class="input-absensi-eskul">Input Absensi Eskul</h3>
-                        </div>
+                        </form>
 
                     </div>
 

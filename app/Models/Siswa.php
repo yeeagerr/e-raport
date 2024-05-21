@@ -26,4 +26,9 @@ class Siswa extends Model implements Authenticatable
     {
         return $this->belongsTo(Kela::class, "kela_id", "id");
     }
+
+    public function hasJurusan()
+    {
+        return $this->hasMany(Ekskul::class, 'siswa_id', 'id');
+    }
 }

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SiswaOnly
+class SiswaAdminOnly
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,9 @@ class SiswaOnly
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-        if (!auth()->guard("siswa")->check()) {
+        if (!auth()->guard("siswa")->check() && !auth()->guard("admin")->check()) {
             return redirect()->route("dashboard");
         }
-
         return $next($request);
     }
 }

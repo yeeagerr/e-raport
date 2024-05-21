@@ -11,4 +11,9 @@ class Ekskul extends Model
 
     public $timestamps = false;
     protected $table = "ekskul";
+
+    public function hasSiswa()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id');
+    }
 }

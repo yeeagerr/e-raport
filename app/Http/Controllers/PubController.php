@@ -16,6 +16,12 @@ class PubController extends Controller
         return view("Pages.Dashboard")->with(compact('user'));
     }
 
+    public function update_show()
+    {
+        $user = session('user');
+        return view("Pages.siswa.update", compact('user'));
+    }
+
     public function raport()
     {
         $user = session('user');

@@ -46,11 +46,13 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
             Route::get("/kelas/{id}/siswa", [GuruController::class, 'list_siswa'])->name("list_siswa");
             Route::get("/dashboard/eskul", [GuruController::class, 'eskul'])->name("eskul");
             Route::get("/ekskul/{ekskul}/siswa", [GuruController::class, 'list_eskul'])->name("list_eskul");
+            Route::get("/ekskul/{id}/absensi", [GuruController::class, 'absen_eskul'])->name("ekskul_absen");
         });
     });
 
-    Route::middleware("SiswaOnly")->group(function () {
+    Route::middleware("SiswaAdminOnly")->group(function () {
         Route::prefix("/siswa")->group(function () {
+            Route::get("/update", [PubController::class, 'update_show'])->name("update_siswa_show");
             Route::get("/raport", [PubController::class, 'raport'])->name("raport_siswa");
             Route::get("/rangking", [PubController::class, 'rangking'])->name("rangking_siswa");
             Route::get("/list/walikelas", [PubController::class, 'profil_walikelas'])->name("profil_walikelas");

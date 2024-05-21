@@ -40,6 +40,14 @@ class GuruController extends Controller
 
     public function list_eskul($ekskul)
     {
-        dd($ekskul);
+        $siswa = Ekskul::where('nama_ekskul', $ekskul)->get();
+        $user = session("user");
+        return view("Pages.guru.list_siswa_eskul", compact('user', 'siswa'));
+    }
+
+    public function absen_eskul(Siswa $id)
+    {
+        $user = session("user");
+        return view("Pages.guru.absensi_ekskul", compact('user', 'id'));
     }
 }
