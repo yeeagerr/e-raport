@@ -71,7 +71,7 @@ class AuthController extends Controller
             return redirect()->route('dashboard');
         }
 
-        dd("Kredensial Invalid");
+        return redirect()->route('login_admin');
     }
 
     public function logout(Request $request)
