@@ -41,6 +41,8 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
 
     Route::middleware("GuruAdminOnly")->group(function () {
         Route::prefix("guru")->group(function () {
+            Route::get("/update", [GuruController::class, 'update_show'])->name("update_guru_show");
+            Route::post("/update/{id}", [GuruController::class, 'update_post'])->name("update_guru_post");
             Route::get("/dashboard/{page}/kelas", [GuruController::class, 'kelas'])->name("kelas_guru");
             Route::get("/kelas/{id}/input", [GuruController::class, 'kelas_input'])->name("kelas_guru_input");
             Route::get("/kelas/{id}/siswa", [GuruController::class, 'list_siswa'])->name("list_siswa");
@@ -53,6 +55,7 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
     Route::middleware("SiswaAdminOnly")->group(function () {
         Route::prefix("/siswa")->group(function () {
             Route::get("/update", [PubController::class, 'update_show'])->name("update_siswa_show");
+            Route::post("/update/{id}", [PubController::class, 'update_post'])->name("update_siswa_post");
             Route::get("/raport", [PubController::class, 'raport'])->name("raport_siswa");
             Route::get("/rangking", [PubController::class, 'rangking'])->name("rangking_siswa");
             Route::get("/list/walikelas", [PubController::class, 'profil_walikelas'])->name("profil_walikelas");

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ekskul;
+use App\Models\Guru;
 use App\Models\Kela;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class GuruController extends Controller
 {
@@ -49,5 +52,36 @@ class GuruController extends Controller
     {
         $user = session("user");
         return view("Pages.guru.absensi_ekskul", compact('user', 'id'));
+    }
+
+    public function update_show()
+    {
+        $user = session("user");
+        return view("Pages.guru.update", compact('user'));
+    }
+
+    public function update_post(Guru $id, Request $request)
+    {
+
+        if ($request->password) {
+            $id->update([
+                'nama' => $request->nama,
+                'nuptk' => $request->nuptk,
+                'username' => $request->username,
+                'password' => Hash::make($request->password)
+            ]);
+        }
+
+        $id->update([
+            'nama' => $request->nama,
+            'nuptk' => $request->nuptk,
+            'username' => $request->username
+        ]);
+
+        if (Auth::guard("guru")->user()) {
+            session(['user' => $id->first()]);
+        }
+
+        return redirect()->route('dashboard');
     }
 }

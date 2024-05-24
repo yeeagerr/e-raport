@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\Kela;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class PubController extends Controller
 {
@@ -19,7 +22,32 @@ class PubController extends Controller
     public function update_show()
     {
         $user = session('user');
-        return view("Pages.siswa.update", compact('user'));
+        $kelas = Kela::all();
+        return view("Pages.siswa.update", compact('user', 'kelas'));
+    }
+
+    public function update_post(Siswa $id, Request $request)
+    {
+        if ($request->password) {
+            $id->update([
+                'nama' => $request->nama,
+                'nisn' => $request->nisn,
+                'username' => $request->username,
+                'password' => Hash::make($request->password)
+            ]);
+        }
+
+        $id->update([
+            'nama' => $request->nama,
+            'nisn' => $request->nisn,
+            'username' => $request->username
+        ]);
+
+        if (Auth::guard("siswa")->user()) {
+            session(['user' => $id->first()]);
+        }
+
+        return redirect()->route('dashboard');
     }
 
     public function raport()

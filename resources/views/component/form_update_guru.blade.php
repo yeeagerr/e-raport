@@ -1,4 +1,4 @@
-<form action="{{route('update_siswa_post', $user->id)}}" method="POST">
+<form action="{{route('update_guru_post', $user->id)}}" method="POST">
     @csrf
     <b class="update-data-siswa1">UPDATE ACCOUNT SISWA</b>
 
@@ -12,8 +12,8 @@
     <div class="gerak1">
         <div class="nama34">
             <div class="bar-red90"></div>
-            <input type="text" name="nisn" class="bar-white90" value="{{$user->nisn}}" />
-            <div class="username-text78">Nisn</div>
+            <input type="text" name="nuptk" class="bar-white90" value="{{$user->nuptk}}" />
+            <div class="username-text78">Nuptk</div>
         </div>
     </div>
 
