@@ -19,11 +19,12 @@ class PubController extends Controller
         return view("Pages.Dashboard")->with(compact('user'));
     }
 
-    public function update_show()
+    public function update_show(Siswa $id)
     {
         $user = session('user');
+        $siswa = $id;
         $kelas = Kela::all();
-        return view("Pages.siswa.update", compact('user', 'kelas'));
+        return view("Pages.siswa.update", compact('user', 'kelas', 'siswa'));
     }
 
     public function update_post(Siswa $id, Request $request)
@@ -45,9 +46,10 @@ class PubController extends Controller
 
         if (Auth::guard("siswa")->user()) {
             session(['user' => $id->first()]);
+            return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('list_siswa', $id->kelas_siswa->id);
         }
-
-        return redirect()->route('dashboard');
     }
 
     public function raport()

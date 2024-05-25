@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PubController;
@@ -39,6 +40,13 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
 
     Route::post("/logout", [AuthController::class, "logout"])->name("logout");
 
+    Route::middleware("admin")->group(function () {
+
+        Route::get("/update", [AdminController::class, 'update_show'])->name("update_admin_show");
+        Route::post("/update/{id}", [AdminController::class, 'update_post'])->name("update_admin_post");
+    });
+
+
     Route::middleware("GuruAdminOnly")->group(function () {
         Route::prefix("guru")->group(function () {
             Route::get("/update", [GuruController::class, 'update_show'])->name("update_guru_show");
@@ -54,7 +62,7 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
 
     Route::middleware("SiswaAdminOnly")->group(function () {
         Route::prefix("/siswa")->group(function () {
-            Route::get("/update", [PubController::class, 'update_show'])->name("update_siswa_show");
+            Route::get("/update/{id}", [PubController::class, 'update_show'])->name("update_siswa_show");
             Route::post("/update/{id}", [PubController::class, 'update_post'])->name("update_siswa_post");
             Route::get("/raport", [PubController::class, 'raport'])->name("raport_siswa");
             Route::get("/rangking", [PubController::class, 'rangking'])->name("rangking_siswa");

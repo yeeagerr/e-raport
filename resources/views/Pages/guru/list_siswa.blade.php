@@ -49,11 +49,21 @@
                     @foreach ($siswa as $i)
                     <div class="update-data-button">
                         <div class="update-data-button-child"></div>
+                        @if (!$user->nutpk)
+                        <button class="useraltfill-instance">
+                            {{-- <img class="useraltfill-instance-child" alt=""
+                                src="{{asset('asset/others/Human.png')}}"> --}}
+                            <a href="{{route('kelas_guru_input', $i->id)}}" class="edit-data-nilai">Edit Data Nilai</a>
+                        </button>
+                        <a href="{{route('update_siswa_show', $i->id)}}" class="update-data">UPDATE DATA?</a>
+
+                        @else
                         <button class="useraltfill-instance">
                             {{-- <img class="useraltfill-instance-child" alt=""
                                 src="{{asset('asset/others/Human.png')}}"> --}}
                             <a href="" class="edit-data-nilai">Biodata Siswa</a>
                         </button>
+                        @endif
 
                         <div class="welcome-message-parent">
                             <div class="welcome-message"></div>
