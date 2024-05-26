@@ -11,7 +11,7 @@ class Guru extends Model implements Authenticatable
 {
     use HasFactory, AuthenticatableGuru;
 
-    public $table = 'guru';
+    protected $table = 'guru';
 
     public $fillable = [
         'nama',

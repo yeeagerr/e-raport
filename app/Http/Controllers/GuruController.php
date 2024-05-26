@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\NilaiImport;
 use App\Models\Ekskul;
 use App\Models\Guru;
 use App\Models\Kela;
@@ -9,6 +10,7 @@ use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GuruController extends Controller
 {
@@ -25,6 +27,13 @@ class GuruController extends Controller
         $kelas = Kela::findOrFail($id);
         return view("Pages.guru.kelas_input", compact('user', 'kelas'));
     }
+
+    public function kelas_input_post($id, Request $request)
+    {
+        $file = $request->file('excel_nilai');
+        Excel::import(new NilaiImport, $file);
+    }
+
 
     public function list_siswa($id)
     {

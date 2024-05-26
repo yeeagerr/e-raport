@@ -76,9 +76,11 @@
                     </div>
 
                     <div id="content2">
-                        <form class="rectangle-group">
+                        <form class="rectangle-group" enctype="multipart/form-data"
+                            action="{{route('kelas_guru_input_post', $kelas->id)}}" method="POST">
+                            @csrf
                             <div class="vector-group">
-                                <input class="choose-file" type="file" id="fileInput">
+                                <input class="choose-file" type="file" id="fileInput" name="excel_nilai">
                                 <label for="fileInput" class="custom-file-label">Choose file</label>
                             </div>
                             <div class="vector-container">
@@ -87,6 +89,7 @@
                             </div>
                             <h3 class="input-nilai">Input Nilai</h3>
                             <h3 class="input-absensi-eskul">Input Absensi Eskul</h3>
+                            <button type="submit">Submit</button>
                         </form>
 
                     </div>
