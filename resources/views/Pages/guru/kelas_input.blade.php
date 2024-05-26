@@ -78,10 +78,12 @@
                     <div id="content2">
                         <form class="rectangle-group">
                             <div class="vector-group">
-                                <div class="choose-file">Choose File</div>
+                                <input class="choose-file" type="file" id="fileInput">
+                                <label for="fileInput" class="custom-file-label">Choose file</label>
                             </div>
                             <div class="vector-container">
-                                <div class="choose-file1">Choose File</div>
+                                <input class="choose-file" type="file" id="fileInput">
+                                <label for="fileInput" class="custom-file-label">Choose file</label>
                             </div>
                             <h3 class="input-nilai">Input Nilai</h3>
                             <h3 class="input-absensi-eskul">Input Absensi Eskul</h3>

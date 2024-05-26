@@ -866,6 +866,7 @@ a {
     position: absolute;
     top: 16px;
     left: 36px;
+    border-radius: 200px;
     font-size: var(--font-size-xl);
     font-weight: 600;
     font-family: var(--font-inter);
@@ -874,6 +875,34 @@ a {
     display: inline-block;
     min-width: 114px;
     z-index: 6;
+    border: none;
+    text-decoration: none;
+}
+
+.choose-file {
+    display: none;
+}
+
+.custom-file-label {
+    position: absolute;
+    top: 16px;
+    left: 36px;
+    border-radius: 200px;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    font-family: var(--font-inter);
+    color: var(--color-black);
+    text-align: center;
+    display: inline-block;
+    min-width: 114px;
+    z-index: 6;
+    border: none;
+    text-decoration: none;
+}
+
+.file-name {
+    margin-left: 10px;
+    font-family: Arial, sans-serif;
 }
 .choose-file1 {
     position: absolute;
