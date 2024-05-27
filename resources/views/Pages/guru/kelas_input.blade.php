@@ -84,8 +84,8 @@
                                 <label for="fileInput" class="custom-file-label">Choose file</label>
                             </div>
                             <div class="vector-container">
-                                <input class="choose-file" type="file" id="fileInput">
-                                <label for="fileInput" class="custom-file-label">Choose file</label>
+                                <input class="choose-file" type="file" name="excel_absen" id="fileInput2">
+                                <label for="fileInput2" class="custom-file-label">Choose file</label>
                             </div>
                             <h3 class="input-nilai">Input Nilai</h3>
                             <h3 class="input-absensi-eskul">Input Absensi Eskul</h3>

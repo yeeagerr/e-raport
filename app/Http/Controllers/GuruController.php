@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\AbsenImport;
 use App\Imports\NilaiImport;
 use App\Models\Ekskul;
 use App\Models\Guru;
@@ -32,9 +33,9 @@ class GuruController extends Controller
     {
         $fileNilai = $request->file('excel_nilai');
         $fileAbsen = $request->file('excel_absen');
-
-        Excel::import(new NilaiImport, $fileNilai);
-        Excel::import(new NilaiImport, $fileAbsen);
+        // dd($fileAbsen);
+        // Excel::import(new NilaiImport, $fileNilai);
+        Excel::import(new AbsenImport, $fileAbsen);
     }
 
 
