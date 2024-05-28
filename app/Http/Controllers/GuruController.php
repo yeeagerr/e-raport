@@ -34,8 +34,10 @@ class GuruController extends Controller
         $fileNilai = $request->file('excel_nilai');
         $fileAbsen = $request->file('excel_absen');
         // dd($fileAbsen);
-        // Excel::import(new NilaiImport, $fileNilai);
+        Excel::import(new NilaiImport, $fileNilai);
         Excel::import(new AbsenImport, $fileAbsen);
+
+        return redirect()->route('dashboard');
     }
 
 

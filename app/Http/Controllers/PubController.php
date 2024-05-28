@@ -64,7 +64,8 @@ class PubController extends Controller
     public function rangking()
     {
         $user = session('user');
-        return view('Pages.siswa.Rangking', compact('user'));
+        $siswa = Siswa::where('kela_id', $user->kela_id)->get();
+        return view('Pages.siswa.Rangking', compact('user', 'siswa'));
     }
 
     public function profil_walikelas()

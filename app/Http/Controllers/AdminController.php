@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -32,5 +33,11 @@ class AdminController extends Controller
         session(['user' => $id->first()]);
 
         return redirect()->route('dashboard');
+    }
+
+    public function input_nilai(Siswa $id)
+    {
+        $user = session("user");
+        return view("Pages.admin.update_input", compact('user', 'id'));
     }
 }

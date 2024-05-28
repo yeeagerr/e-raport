@@ -26,7 +26,8 @@
                                 <b class="siswa1">Jurnalistik</b>
                             </div>
                         </div>
-                        <img class="sign-out-button2" alt="" src="{{asset('asset/others/SIGN OUT BUTTON.png')}}" />
+                        <img class="sign-out-button2" onclick="window.location.href ='{{route('eskul')}}'" alt=""
+                            src="{{asset('asset/others/SIGN OUT BUTTON.png')}}" />
                     </button>
                 </div>
             </div>
@@ -44,13 +45,13 @@
                     @endphp
                     @foreach ($siswa as $item)
                     <div class="update-data-button">
-                        <div class="update-data-button-child"></div>
+                        {{-- <div class="update-data-button-child"></div>
                         <button class="name-column-label">
                             <img class="name-column-label-child" alt="" src="./public/rectangle-4178.svg" />
 
                             <a href="{{route('ekskul_absen', $item->hasSiswa->id)}}" class="input-raport">Cek
                                 Absensi</a>
-                        </button>
+                        </button> --}}
                         <div class="welcome-message-parent">
                             <div class="welcome-message"></div>
                             <img class="user-alt-fill-icon1" loading="lazy" alt=""
