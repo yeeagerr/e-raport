@@ -12,7 +12,7 @@
     <div class="gerak1">
         <div class="nama34">
             <div class="bar-red90"></div>
-            <input type="text" name="nisn" class="bar-white90" value="{{$siswa->nisn}}" />
+            <input readonly type="text" class="bar-white90" value="{{$siswa->nisn}}" />
             <div class="username-text78">Nisn</div>
         </div>
     </div>

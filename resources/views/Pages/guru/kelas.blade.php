@@ -23,7 +23,7 @@
                         <div class="sign-out-button-inner">
                             <div class="rectangle-parent3">
                                 <div class="frame-child11"></div>
-                                <b class="siswa1">{{$page}}</b>
+                                <b class="siswa1">{{strtoupper($page)}}</b>
                             </div>
                     </button>
                 </div>
@@ -43,14 +43,14 @@
                         <div class="gerak1">
                             <div class="rectangle-parent69">
                                 <div class="frame-child3"></div>
-                                @if ($page == "SISWA")
+                                @if ($page == "siswa")
                                 <a href="{{route('list_siswa', $i->id)}}" class="rectangle-parent4">
                                     <div class="frame-child4"></div>
                                     <b class="x-pplg">{{$i->nama_kelas}}</b>
                                 </a>
                                 @endif
 
-                                @if ($page == "KELAS")
+                                @if ($page == "kelas")
                                 <a href="{{route('kelas_guru_input', $i->id)}}" class="rectangle-parent4">
                                     <div class="frame-child4"></div>
                                     <b class="x-pplg">{{$i->nama_kelas}}</b>

@@ -1,25 +1,25 @@
 @if ($user->nuptk ?? "")
-<a href="{{route('kelas_guru', 'KELAS')}}" class="raport-siswa-ranking-profil-wa2">
+<a href="{{route('kelas_guru', 'kelas')}}" class="raport-siswa-ranking-profil-wa2">
     <div class="raport-siswa-ranking-profil-wa-item"></div>
     <div class="ranking">Kelas</div>
 </a>
-<a href="{{route('kelas_guru', 'SISWA')}}" class="raport-siswa-ranking-profil-wa3">
+<a href="{{route('kelas_guru', 'siswa')}}" class="raport-siswa-ranking-profil-wa3">
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Siswa</div>
 </a>
-<a href="{{route('eskul')}}" class="raport-siswa-ranking-profil-wa3">
+{{-- <a href="{{route('eskul')}}" class="raport-siswa-ranking-profil-wa3">
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Ekstrakulikuler</div>
-</a>
+</a> --}}
 @endif
 
 @if (!$user->nuptk && !$user->nisn && $user->username && $user->password)
 
-<a href="{{route('kelas_guru', 'KELAS')}}" class="raport-siswa-ranking-profil-wa2">
+<a href="{{route('kelas_guru', 'kelas')}}" class="raport-siswa-ranking-profil-wa2">
     <div class="raport-siswa-ranking-profil-wa-item"></div>
     <div class="ranking">Kelas</div>
 </a>
-<a href="{{route('kelas_guru', 'SISWA')}}" class="raport-siswa-ranking-profil-wa3">
+<a href="{{route('kelas_guru', 'siswa')}}" class="raport-siswa-ranking-profil-wa3">
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Siswa</div>
 </a>
@@ -28,10 +28,10 @@
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Data Guru</div>
 </a>
-<a href="{{route('eskul')}}" class="raport-siswa-ranking-profil-wa3">
+{{-- <a href="{{route('eskul')}}" class="raport-siswa-ranking-profil-wa3">
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Ekstrakulikuler</div>
-</a>
+</a> --}}
 @endif
 
 @if($user->nisn ?? "")

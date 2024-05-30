@@ -1,569 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raport</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 1.5cm;
-      }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Raport</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 1.5cm;
+            }
 
-      p {
-        margin: 0px;
-        font-size: 12px;
-        letter-spacing: 0.4px;
-      }
+            p {
+                margin: 0px;
+                font-size: 12px;
+                letter-spacing: 0.4px;
+            }
 
-      @page {
-        size: A4;
-        margin: 0px;
-      }
+            @page {
+                size: A4;
+                margin: 0px;
+            }
 
-      table {
-        width: 100%;
-        border: 1px solid black;
-        font: 10px "Times New Roman", Helvetica, Arial, sans-serif;
-        border-collapse: collapse;
-        font-weight: 500;
-      }
+            table {
+                width: 100%;
+                border: 1px solid black;
+                font: 10px "Times New Roman", Helvetica, Arial, sans-serif;
+                border-collapse: collapse;
+                font-weight: 500;
+            }
 
-      thead > tr,
-      tfoot > tr {
-        background-color: rgb(250, 185, 161);
-      }
+            thead > tr,
+            tfoot > tr {
+                background-color: rgb(250, 185, 161);
+            }
 
-      tr {
-        height: auto;
-      }
+            tr {
+                height: auto;
+            }
 
-      td {
-        padding-left: 2px;
-      }
+            td {
+                padding-left: 2px;
+            }
 
-      th,
-      td {
-        border: 1px solid rgb(0, 0, 0);
-        padding-right: 3px;
-      }
+            th,
+            td {
+                border: 1px solid rgb(0, 0, 0);
+                padding-right: 3px;
+            }
 
-      .hero {
-        width: 210mm;
-        height: auto;
-      }
+            .hero {
+                width: 210mm;
+                height: auto;
+            }
 
-      .informasi {
-        height: auto;
-        display: flex;
-        align-items: start;
-        width: 100%;
-        justify-content: space-between;
-        margin-bottom: 0px;
-      }
+            .informasi {
+                height: auto;
+                display: flex;
+                align-items: start;
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 0px;
+            }
 
-      .infodua,
-      .infosatu {
-        display: flex;
+            .infodua,
+            .infosatu {
+                display: flex;
 
-        justify-content: start;
-        align-items: center;
-      }
+                justify-content: start;
+                align-items: center;
+            }
 
-      .infodua p,
-      .infosatu p {
-        display: flex;
-        font-weight: bold;
-        font-family: "Times New Roan", Helvetica, Arial, sans-serif;
-        width: auto;
-        font-size: 8px;
-        justify-content: start;
-        align-items: center;
-      }
+            .infodua p,
+            .infosatu p {
+                display: flex;
+                font-weight: bold;
+                font-family: "Times New Roan", Helvetica, Arial, sans-serif;
+                width: auto;
+                font-size: 8px;
+                justify-content: start;
+                align-items: center;
+            }
 
-      .rowdot,
-      .rowinfo {
-        margin-right: 10px;
-      }
+            .rowdot,
+            .rowinfo {
+                margin-right: 10px;
+            }
 
-      .rowinfo,
-      .rowdot,
-      .rowinfodata {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 70px;
-      }
+            .rowinfo,
+            .rowdot,
+            .rowinfodata {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 70px;
+            }
 
-      .muatan-lokal {
-        margin-left: 1cm;
+            .muatan-lokal {
+                margin-left: 1cm;
 
-        font: xx-small "Times New Roman", Helvetica, Arial, sans-serif;
-      }
+                font: xx-small "Times New Roman", Helvetica, Arial, sans-serif;
+            }
 
-      .twotable {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 5px;
-      }
+            .twotable {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 5px;
+            }
 
-      .ttd {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-        margin-top: 10px;
-        height: auto;
-        font: "Times New Roman", Helvetica, Arial, sans-serif;
-      }
+            .ttd {
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
+                margin-top: 10px;
+                height: auto;
+                font: "Times New Roman", Helvetica, Arial, sans-serif;
+            }
 
-      .boxttd-kepsek,
-      .boxttd {
-        height: 55px;
-        display: flex;
-        align-items: end;
-        justify-content: center;
-      }
+            .boxttd-kepsek,
+            .boxttd {
+                height: 55px;
+                display: flex;
+                align-items: end;
+                justify-content: center;
+            }
 
-      .boxttd-kepsek {
-        height: 60px;
-      }
+            .boxttd-kepsek {
+                height: 60px;
+            }
 
-      .walikelas {
-        width: 30%;
-      }
+            .walikelas {
+                width: 30%;
+            }
 
-      .kepalasekolah {
-        margin-top: 40px;
-        font: bold 10px "Times New Roman", Helvetica, Arial, sans-serif;
-      }
+            .kepalasekolah {
+                margin-top: 40px;
+                font: bold 10px "Times New Roman", Helvetica, Arial, sans-serif;
+            }
 
-      .boxttd,
-      .siapaIni {
-        font: bold 10px "Times New Roman", Helvetica, Arial, sans-serif;
-      }
+            .boxttd,
+            .siapaIni {
+                font: bold 10px "Times New Roman", Helvetica, Arial, sans-serif;
+            }
 
-      .info-rapor {
-        font: bold "Times New Roman", Helvetica, Arial, sans-serif;
-        text-align: end;
-        font-size: normal;
-        font-style: italic;
-        margin-top: 3px;
-      }
+            .info-rapor {
+                font: bold "Times New Roman", Helvetica, Arial, sans-serif;
+                text-align: end;
+                font-size: normal;
+                font-style: italic;
+                margin-top: 3px;
+            }
 
-      .walibox {
-        height: 45px;
-        display: flex;
-        align-items: end;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="hero">
-      <div class="informasi">
-        <div class="infosatu">
-          <div class="rowinfo">
-            <p>Nama Peserta Didik</p>
-            <p>NIS / NISN</p>
-            <p>Kelas/Fase</p>
-            <p>Semester</p>
-          </div>
+            .walibox {
+                height: 45px;
+                display: flex;
+                align-items: end;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="hero">
+            <div class="informasi">
+                <div class="infosatu">
+                    <div class="rowinfo">
+                        <p>Nama Peserta Didik</p>
+                        <p>NIS / NISN</p>
+                        <p>Kelas/Fase</p>
+                        <p>Semester</p>
+                    </div>
 
-          <div class="rowdot">
-            <p>:</p>
-            <p>:</p>
-            <p>:</p>
-            <p>:</p>
-          </div>
+                    <div class="rowdot">
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                    </div>
 
-          <div class="rowinfodata">
-            <p>Muhammad Habib Abdillah</p>
-            <p>023791273</p>
-            <p>XI PPLG 1/F</p>
-            <p>Ganjil</p>
-          </div>
-        </div>
+                    <div class="rowinfodata">
+                        <p>Muhammad Habib Abdillah</p>
+                        <p>023791273</p>
+                        <p>XI PPLG 1/F</p>
+                        <p>Ganjil</p>
+                    </div>
+                </div>
 
-        <div class="infodua">
-          <div class="rowinfo">
-            <p>Sekolah</p>
-            <p>Program Keahlian</p>
-            <p>Konsentrasi Keahlian</p>
-            <p>Tahun Pelajaran</p>
-          </div>
+                <div class="infodua">
+                    <div class="rowinfo">
+                        <p>Sekolah</p>
+                        <p>Program Keahlian</p>
+                        <p>Konsentrasi Keahlian</p>
+                        <p>Tahun Pelajaran</p>
+                    </div>
 
-          <div class="rowdot">
-            <p>:</p>
-            <p>:</p>
-            <p>:</p>
-            <p>:</p>
-          </div>
+                    <div class="rowdot">
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                        <p>:</p>
+                    </div>
 
-          <div class="rowinfodata">
-            <p>SMKS Multistudi High School</p>
-            <p>PPLG</p>
-            <p>RPL</p>
-            <p>200128312</p>
-          </div>
-        </div>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col" style="width: 30px">No</th>
-            <th scope="col" style="width: 150px">Mata Pelajaran</th>
-            <th scope="col" style="width: 40px">
-              Nilai <br />
-              Akhir
-            </th>
-            <th scope="col">Capaian Kompetensi</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">1</th>
-            <td rowspan="2">Pendidikan Agama dan Budi Pekerti</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <div class="rowinfodata">
+                        <p>SMKS Multistudi High School</p>
+                        <p>PPLG</p>
+                        <p>RPL</p>
+                        <p>200128312</p>
+                    </div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 30px">No</th>
+                        <th scope="col" style="width: 150px">Mata Pelajaran</th>
+                        <th scope="col" style="width: 40px">
+                            Nilai <br />
+                            Akhir
+                        </th>
+                        <th scope="col">Capaian Kompetensi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            1
+                        </th>
+                        <td rowspan="1">Pendidikan Agama dan Budi Pekerti</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">2</th>
-            <td rowspan="2">Pendidikan Pancasila dan Kewarganegaraan</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            2
+                        </th>
+                        <td rowspan="1">
+                            Pendidikan Pancasila dan Kewarganegaraan
+                        </td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">3</th>
-            <td rowspan="2">Bahasa Indonesia</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            3
+                        </th>
+                        <td rowspan="1">Bahasa Indonesia</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">4</th>
-            <td rowspan="2">Pendidikan Jasmani, Olah Raga, dan Kesehatan</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            4
+                        </th>
+                        <td rowspan="1">
+                            Pendidikan Jasmani, Olah Raga, dan Kesehatan
+                        </td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">5</th>
-            <td rowspan="2">Sejarah</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            5
+                        </th>
+                        <td rowspan="1">Sejarah</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">6</th>
-            <td rowspan="2">Seni</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            6
+                        </th>
+                        <td rowspan="1">Seni</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">7</th>
-            <td rowspan="2">Matematika</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            7
+                        </th>
+                        <td rowspan="1">Matematika</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">8</th>
-            <td rowspan="2">Bahasa Inggris</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            8
+                        </th>
+                        <td rowspan="1">Bahasa Inggris</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">9</th>
-            <td rowspan="2">Informatika</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            9
+                        </th>
+                        <td rowspan="1">Informatika</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <!-- mapel -->
-          <tr>
-            <th scope="row" rowspan="2" style="text-align: center">10</th>
-            <td rowspan="2">Proyek Ilmu Pengetahuan Alam dan Sosial</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <!-- mapel -->
+                    <tr>
+                        <th scope="row" rowspan="1" style="text-align: center">
+                            10
+                        </th>
+                        <td rowspan="1">
+                            Proyek Ilmu Pengetahuan Alam dan Sosial
+                        </td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <!-- Nyatu -->
-          <tr>
-            <th scope="row" rowspan="7" style="">11</th>
-            <td colspan="3">Dasar - Dasar Program Keahlian</td>
-          </tr>
+                    <!-- Nyatu -->
+                    <tr>
+                        <th scope="row" rowspan="7" style="">11</th>
+                        <td colspan="3">Dasar - Dasar Program Keahlian</td>
+                    </tr>
 
-          <tr>
-            <td rowspan="2">a. Dasar - Dasar Program Keahlian PPLG</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <tr>
+                        <td rowspan="1">
+                            a. Dasar - Dasar Program Keahlian PPLG
+                        </td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <tr>
-            <td rowspan="2">b. Pemograman Berorientasi Objek</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <tr>
+                        <td rowspan="1">b. Pemograman Berorientasi Objek</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
 
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
+                    <tr>
+                        <td rowspan="1">Orientasi Dasar</td>
+                        <td rowspan="1" style="text-align: center">100</td>
+                        <td style="padding: 10px 5px 10px 5px">
+                            lorem ipsum dolor simadas yaie okklahoma city dolor
+                            lorem ipsum queriem hareff dolor if opiem upium
+                            jaruf yory dolo opsem ipsum
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-          <tr>
-            <td rowspan="2">Orientasi Dasar</td>
-            <td rowspan="2" style="text-align: center">100</td>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-          <tr>
-            <td>
-              lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-              queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="muatan-lokal">Muatan Lokal</p>
-      <table>
-        <tr>
-          <td
-            style="width: 30px; text-align: center"
-            rowspan="2"
-            style="text-align: center"
-          >
-            12
-          </td>
-          <td style="width: 148px" rowspan="2">Conversation</td>
-          <td
-            style="width: 40px; text-align: center"
-            rowspan="2"
-            style="text-align: center"
-          >
-            100
-          </td>
-          <td>
-            lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-            queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-          </td>
-        </tr>
-        <tr>
-          <td>
-            lorem ipsum dolor simadas yaie okklahoma city dolor lorem ipsum
-            queriem hareff dolor if opiem upium jaruf yory dolo opsem ipsum
-          </td>
-        </tr>
-      </table>
-      <div class="twotable">
-        <table style="width: 60%">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 12.5px">No</th>
-              <th scope="col" style="width: 100px">Nama Ekstrakulikuler</th>
+            <div class="twotable">
+                <table style="width: 30%">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 12.5px">No</th>
+                            <th scope="col" style="width: 100px">
+                                Nama Ekstrakulikuler
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height: 20px">
+                            <td style="text-align: center">1</td>
+                            <td style="text-align: center">basket</td>
+                        </tr>
+                        <tr style="height: 20px">
+                            <td style="text-align: center"></td>
+                            <td style="text-align: center">-</td>
+                        </tr>
+                        <tr style="height: 20px">
+                            <td style="text-align: center"></td>
+                            <td style="text-align: center"></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-              <th scope="col" style="width: 110px">Keterangan</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="height: 20px">
-              <td style="text-align: center">1</td>
-              <td style="text-align: center">basket</td>
-              <td style="text-align: center">A</td>
-            </tr>
-            <tr style="height: 20px">
-              <td style="text-align: center"></td>
-              <td style="text-align: center">-</td>
-              <td style="text-align: center">-</td>
-            </tr>
-            <tr style="height: 20px">
-              <td style="text-align: center"></td>
-              <td style="text-align: center"></td>
-              <td style="text-align: center"></td>
-            </tr>
-          </tbody>
-        </table>
+                <table style="width: 30%">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="4">Absen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height: 20px">
+                            <td style="width: 60px">Sakit</td>
+                            <td style="width: 4px; text-align: center">:</td>
+                            <td style="width: 80px; text-align: center">1</td>
+                            <td style="width: 30px">hari</td>
+                        </tr>
+                        <tr style="height: 20px">
+                            <td style="width: 60px">Izin</td>
+                            <td style="width: 4px; text-align: center">:</td>
+                            <td style="width: 80px; text-align: center">1</td>
+                            <td style="width: 30px">hari</td>
+                        </tr>
 
-        <table style="width: 30%">
-          <thead>
-            <tr>
-              <th scope="col" colspan="4">Ekstrakulikuler</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="height: 20px">
-              <td style="width: 60px">Sakit</td>
-              <td style="width: 4px; text-align: center">:</td>
-              <td style="width: 80px; text-align: center">1</td>
-              <td style="width: 30px">hari</td>
-            </tr>
-            <tr style="height: 20px">
-              <td style="width: 60px">Izin</td>
-              <td style="width: 4px; text-align: center">:</td>
-              <td style="width: 80px; text-align: center">1</td>
-              <td style="width: 30px">hari</td>
-            </tr>
+                        <tr style="height: 20px">
+                            <td style="width: 100px">Tanpa Keterangan</td>
+                            <td style="width: 4px; text-align: center">:</td>
+                            <td style="width: 80px; text-align: center">0</td>
+                            <td style="width: 30px">hari</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <tr style="height: 20px">
-              <td style="width: 100px">Tanpa Keterangan</td>
-              <td style="width: 4px; text-align: center">:</td>
-              <td style="width: 80px; text-align: center">0</td>
-              <td style="width: 30px">hari</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            <div class="ttd">
+                <div class="orangtua-wali">
+                    <p class="siapaIni">Orang Tua / Wali,</p>
+                    <div class="boxttd">
+                        <p>....................................</p>
+                    </div>
+                </div>
+                <div class="kepalasekolah">
+                    <p style="text-align: center; font-size: 10px">
+                        Mengetahui,<br />
+                        Kepala SMK Multistudi High School Batam
+                    </p>
+                    <div class="boxttd-kepsek">
+                        <p style="text-align: center; font-size: 10px">
+                            Joni Firdaus, S.S <br />NRKS:19023L0073160241150015
+                        </p>
+                    </div>
+                </div>
+                <div class="walikelas">
+                    <p class="siapaIni" style="font-weight: normal">
+                        Batam, 23 Juni 2023
+                    </p>
+                    <p class="siapaIni"><strong>Wali Kelas</strong></p>
+                    <div class="walibox">
+                        <p class="siapaIni" style="text-align: start">
+                            Anita Parapat, S.H
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-      <div class="ttd">
-        <div class="orangtua-wali">
-          <p class="siapaIni">Orang Tua / Wali,</p>
-          <div class="boxttd">
-            <p>....................................</p>
-          </div>
-        </div>
-        <div class="kepalasekolah">
-          <p style="text-align: center; font-size: 10px">
-            Mengetahui,<br />
-            Kepala SMK Multistudi High School Batam
-          </p>
-          <div class="boxttd-kepsek">
-            <p style="text-align: center; font-size: 10px">
-              Joni Firdaus, S.S <br />NRKS:19023L0073160241150015
+            <p class="info-rapor">
+                <strong>Rapor Semester Genap TP. 2022 - 2023</strong>
             </p>
-          </div>
         </div>
-        <div class="walikelas">
-          <p class="siapaIni" style="font-weight: normal">
-            Batam, 23 Juni 2023
-          </p>
-          <p class="siapaIni"><strong>Wali Kelas</strong></p>
-          <div class="walibox">
-            <p class="siapaIni" style="text-align: start">Anita Parapat, S.H</p>
-          </div>
-        </div>
-      </div>
-
-      <p class="info-rapor">
-        <strong>Rapor Semester Genap TP. 2022 - 2023</strong>
-      </p>
-    </div>
-  </body>
-  <script></script>
+    </body>
+    <script>
+        window.print();
+    </script>
 </html>

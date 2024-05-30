@@ -53,14 +53,15 @@
                         <button class="useraltfill-instance">
                             {{-- <img class="useraltfill-instance-child" alt=""
                                 src="{{asset('asset/others/Human.png')}}"> --}}
-                            <a href="" class="edit-data-nilai">Biodata Siswa</a>
+                            <a href="{{route('biodata_siswa', $i->id)}}" class="edit-data-nilai">Biodata Siswa</a>
                         </button>
 
                         @else
                         <button class="useraltfill-instance">
                             {{-- <img class="useraltfill-instance-child" alt=""
                                 src="{{asset('asset/others/Human.png')}}"> --}}
-                            <a href="{{route('kelas_guru_input', $i->id)}}" class="edit-data-nilai"> Edit Data Nilai</a>
+                            <a href="{{route('update_input_siswa', $i->id)}}" class="edit-data-nilai"> Edit Data
+                                Nilai</a>
                         </button>
                         <a href="{{route('update_siswa_show', $i->id)}}" class="update-data">UPDATE DATA?</a>
                         @endif

@@ -32,7 +32,6 @@ class PubController extends Controller
         if ($request->password) {
             $id->update([
                 'nama' => $request->nama,
-                'nisn' => $request->nisn,
                 'username' => $request->username,
                 'password' => Hash::make($request->password)
             ]);
@@ -40,7 +39,6 @@ class PubController extends Controller
 
         $id->update([
             'nama' => $request->nama,
-            'nisn' => $request->nisn,
             'username' => $request->username
         ]);
 
@@ -64,7 +62,8 @@ class PubController extends Controller
     public function rangking()
     {
         $user = session('user');
-        return view('Pages.siswa.Rangking', compact('user'));
+        $siswa = Siswa::where('kela_id', $user->kela_id)->get();
+        return view('Pages.siswa.Rangking', compact('user', 'siswa'));
     }
 
     public function profil_walikelas()
