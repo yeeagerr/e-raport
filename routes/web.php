@@ -53,9 +53,10 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
         Route::get("/kelas/{id}/input", [GuruController::class, 'kelas_input'])->name("kelas_guru_input");
         Route::post("/kelas/{id}/input", [GuruController::class, 'kelas_input_post'])->name("kelas_guru_input_post");
         Route::get("/kelas/{id}/siswa", [GuruController::class, 'list_siswa'])->name("list_siswa");
-        Route::get("/dashboard/eskul", [GuruController::class, 'eskul'])->name("eskul");
-        Route::get("/ekskul/{ekskul}/siswa", [GuruController::class, 'list_eskul'])->name("list_eskul");
-        Route::get("/ekskul/{id}/absensi", [GuruController::class, 'absen_eskul'])->name("ekskul_absen");
+        Route::get("/biodata/{id}/siswa", [GuruController::class, 'biodata_siswa'])->name("biodata_siswa");
+        // Route::get("/dashboard/eskul", [GuruController::class, 'eskul'])->name("eskul");
+        // Route::get("/ekskul/{ekskul}/siswa", [GuruController::class, 'list_eskul'])->name("list_eskul");
+        // Route::get("/ekskul/{id}/absensi", [GuruController::class, 'absen_eskul'])->name("ekskul_absen");
     });
 
     Route::middleware("SiswaAdminOnly")->prefix("/siswa")->group(function () {

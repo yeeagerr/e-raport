@@ -53,7 +53,7 @@
                         <button class="useraltfill-instance">
                             {{-- <img class="useraltfill-instance-child" alt=""
                                 src="{{asset('asset/others/Human.png')}}"> --}}
-                            <a href="" class="edit-data-nilai">Biodata Siswa</a>
+                            <a href="{{route('biodata_siswa', $i->id)}}" class="edit-data-nilai">Biodata Siswa</a>
                         </button>
 
                         @else

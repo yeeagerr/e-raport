@@ -7,10 +7,10 @@
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Siswa</div>
 </a>
-<a href="{{route('eskul')}}" class="raport-siswa-ranking-profil-wa3">
+{{-- <a href="{{route('eskul')}}" class="raport-siswa-ranking-profil-wa3">
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Ekstrakulikuler</div>
-</a>
+</a> --}}
 @endif
 
 @if (!$user->nuptk && !$user->nisn && $user->username && $user->password)
@@ -28,10 +28,10 @@
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Data Guru</div>
 </a>
-<a href="{{route('eskul')}}" class="raport-siswa-ranking-profil-wa3">
+{{-- <a href="{{route('eskul')}}" class="raport-siswa-ranking-profil-wa3">
     <div class="raport-siswa-ranking-profil-wa-inner"></div>
     <div class="profil-walikelas">Ekstrakulikuler</div>
-</a>
+</a> --}}
 @endif
 
 @if($user->nisn ?? "")

@@ -34,8 +34,14 @@ class GuruController extends Controller
         $fileNilai = $request->file('excel_nilai');
         $fileAbsen = $request->file('excel_absen');
         // dd($fileAbsen);
-        Excel::import(new NilaiImport, $fileNilai);
-        Excel::import(new AbsenImport, $fileAbsen);
+
+        if ($fileNilai ?? "") {
+            Excel::import(new NilaiImport, $fileNilai);
+        }
+
+        if ($fileAbsen ?? "") {
+            Excel::import(new AbsenImport, $fileAbsen);
+        }
 
         return redirect()->route('dashboard');
     }
@@ -98,5 +104,12 @@ class GuruController extends Controller
         }
 
         return redirect()->route('dashboard');
+    }
+
+    public function biodata_siswa(Siswa $id)
+    {
+        $user = session("user");
+
+        return view('Pages.guru.biodata_siswa', compact(['user', 'id']));
     }
 }

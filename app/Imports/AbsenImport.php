@@ -21,6 +21,7 @@ class AbsenImport implements ToCollection, WithHeadingRow
 
             Absen::updateOrCreate([
                 'siswa_id' => $siswa->id,
+            ], [
                 'sakit' => $row['sakit'] ?? "0",
                 'izin' => $row['izin'] ?? "0",
                 'alpha' => $row['alpha'] ?? "0"

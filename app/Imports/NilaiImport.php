@@ -21,13 +21,17 @@ class NilaiImport implements ToCollection, WithHeadingRow
                 foreach ($subjects as $mapel) {
                     $strLower = strtolower($mapel->nama_mapel);
                     if ($row[$strLower] ?? "") {
-                        Nilai::updateOrCreate([
-                            'siswa_id' => $siswa->id,
-                            'mapel_id' => $mapel->id,
-                            'na' => $row['nilai_akhir'],
-                            'ckmin' => '70',
-                            'ckmax' => '100'
-                        ]);
+                        Nilai::updateOrCreate(
+                            [
+                                'siswa_id' => $siswa->id,
+                                'mapel_id' => $mapel->id,
+                                'ckmin' => '70',
+                                'ckmax' => '100'
+                            ],
+                            [
+                                'na' => $row[$strLower],
+                            ]
+                        );
                     }
                 }
             }

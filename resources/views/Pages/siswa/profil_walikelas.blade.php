@@ -33,7 +33,7 @@
         @endphp
         @foreach ($guru as $i)
         @if ($i->kela_id !== null && $user->nisn)
-        <div id="content{{$count++}}">
+        <div id="content1{{$count++}}">
             <a href="{{route('walikelas', $i->id)}}" class="account-bar1">
                 <div class="account-bar-item"></div>
                 <div class="ellipse-parent">

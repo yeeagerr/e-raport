@@ -45,6 +45,16 @@
             <div class="rectangle-parent2">
                 <div class="positionrek">
                     <div class="pertama">
+                        <div class="username-text">Nisn</div>
+                        <button class="bar-red-group">
+                            <div class="bar-red1"></div>
+                            <div class="bar-white-group">
+                                <div class="bar-white1"></div>
+                                <b class="b1">{{$id->nisn}}</b>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="kedua">
                         <div class="username-text">Nama</div>
                         <button class="bar-red-group">
                             <div class="bar-red1"></div>
@@ -54,29 +64,16 @@
                             </div>
                         </button>
                     </div>
-                    <div class="kedua">
-                        <div class="username-text">Nuptk</div>
-                        <button class="bar-red-group">
-                            <div class="bar-red1"></div>
-                            <div class="bar-white-group">
-                                <div class="bar-white1"></div>
-                                <b class="b1">{{$id->nuptk}}</b>
-                            </div>
-                        </button>
-                    </div>
-                    @if ($id->kelas_siswa->nama_kelas ?? "")
                     <div class="ketiga">
-                        <div class="username-text">Walikelas</div>
+                        <div class="username-text">Kelas</div>
                         <button class="bar-red-group">
                             <div class="bar-red1"></div>
                             <div class="bar-white-group">
                                 <div class="bar-white1"></div>
-                                <b class="b1">{{$id->kelas_siswa->nama_kelas }}</b>
+                                <b class="b1">{{$id->kelas_siswa->nama_kelas}}</b>
                             </div>
                         </button>
                     </div>
-                    @endif
-
                 </div>
             </div>
         </div>

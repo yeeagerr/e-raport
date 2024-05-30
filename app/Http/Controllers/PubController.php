@@ -32,7 +32,6 @@ class PubController extends Controller
         if ($request->password) {
             $id->update([
                 'nama' => $request->nama,
-                'nisn' => $request->nisn,
                 'username' => $request->username,
                 'password' => Hash::make($request->password)
             ]);
@@ -40,7 +39,6 @@ class PubController extends Controller
 
         $id->update([
             'nama' => $request->nama,
-            'nisn' => $request->nisn,
             'username' => $request->username
         ]);
 
