@@ -71,5 +71,7 @@ class Kernel extends HttpKernel
         'GuruAdminOnly' => \App\Http\Middleware\GuruAdminOnly::class,
         'preventBack' => \App\Http\Middleware\PreventBackHistory::class,
         'admin' => \App\Http\Middleware\Admin::class,
+        'siswaOnly' => \App\Http\Middleware\SiswaOnly::class,
+
     ];
 }
