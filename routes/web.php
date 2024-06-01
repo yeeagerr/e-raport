@@ -48,7 +48,7 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
 
 
     Route::middleware("GuruAdminOnly")->prefix("guru")->group(function () {
-        Route::get("/update", [GuruController::class, 'update_show'])->name("update_guru_show");
+        Route::get("/update/{id}", [GuruController::class, 'update_show'])->name("update_guru_show");
         Route::put("/update/{id}", [GuruController::class, 'update_post'])->name("update_guru_post");
         Route::get("/dashboard/{page}/list", [GuruController::class, 'kelas'])->name("kelas_guru");
         Route::get("/kelas/{id}/input", [GuruController::class, 'kelas_input'])->name("kelas_guru_input");

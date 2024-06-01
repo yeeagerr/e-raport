@@ -22,16 +22,25 @@ class SiswaController extends Controller
 
     public function update_post(Siswa $id, Request $request)
     {
+        $request->validate([
+            'nama' => 'required',
+            'username' => 'required',
+        ]);
+
         if ($request->password) {
             $id->update([
                 'nama' => $request->nama,
+                'nisn' => $request->nisn ?? $id->nisn,
                 'username' => $request->username,
+                'kelas' => $request->kelas ?? $id->kelas,
                 'password' => Hash::make($request->password)
             ]);
         }
 
         $id->update([
             'nama' => $request->nama,
+            'nisn' => $request->nisn ?? $id->nisn,
+            'kelas' => $request->kelas ?? $id->kelas,
             'username' => $request->username
         ]);
 

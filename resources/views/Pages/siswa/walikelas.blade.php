@@ -122,7 +122,7 @@
                                         <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">Walikelas</label>
                                         <div
                                             class="bg-white text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[100%] h-[7%] appearance-none relative z-10 flex items-center justify-center">
-                                            {{$id->kelas_siswa->nama_kelas}}
+                                            {{$id->kelas_siswa->nama_kelas ?? "-"}}
                                         </div>
                                         <div
                                             class="absolute top-[235px] left-15 -ml-4 w-[103%] h-[9%] bg-red-800 rounded-3xl shadow z-0 max-sm:-ml-1 max-sm:top-[245px] md:-ml-1">
