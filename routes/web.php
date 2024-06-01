@@ -19,21 +19,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware("alreadyLogin")->group(function () {
+    Route::prefix("/login")->group(function () {
+        Route::get('/', [AuthController::class, 'index'])->name("login");
+        Route::get("/admin", [AuthController::class, 'admin']);
+        Route::post("/admin", [AuthController::class, 'admin_login'])->name("login_admin");
+        Route::post('/siswa', [AuthController::class, 'siswa'])->name("login_siswa");
+        Route::post('/guru', [AuthController::class, 'guru'])->name("login_guru");
+    });
 
-Route::prefix("/login")->group(function () {
-    Route::get('/', [AuthController::class, 'index'])->name("login");
-    Route::get("/admin", [AuthController::class, 'admin']);
-    Route::post("/admin", [AuthController::class, 'admin_login'])->name("login_admin");
-    Route::post('/siswa', [AuthController::class, 'siswa'])->name("login_siswa");
-    Route::post('/guru', [AuthController::class, 'guru'])->name("login_guru");
-});
-
-Route::prefix("/register")->group(function () {
-    Route::get('/', [RegisterController::class, 'register'])->name("register");
-    Route::get('/siswa', [RegisterController::class, 'siswa'])->name("register_siswa");
-    Route::post('/siswa', [RegisterController::class, 'siswa_create'])->name("register_siswa_post");
-    Route::get('/guru', [RegisterController::class, 'guru'])->name("register_guru");
-    Route::post('/guru', [RegisterController::class, 'guru_create'])->name("register_guru_post");
+    Route::prefix("/register")->group(function () {
+        Route::get('/', [RegisterController::class, 'register'])->name("register");
+        Route::get('/siswa', [RegisterController::class, 'siswa'])->name("register_siswa");
+        Route::post('/siswa', [RegisterController::class, 'siswa_create'])->name("register_siswa_post");
+        Route::get('/guru', [RegisterController::class, 'guru'])->name("register_guru");
+        Route::post('/guru', [RegisterController::class, 'guru_create'])->name("register_guru_post");
+    });
 });
 
 Route::middleware(["AuthCheck", "preventBack"])->group(function () {
@@ -55,18 +56,18 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
         Route::post("/kelas/{id}/input", [GuruController::class, 'kelas_input_post'])->name("kelas_guru_input_post");
         Route::get("/kelas/{id}/siswa", [GuruController::class, 'list_siswa'])->name("list_siswa");
         Route::get("/biodata/{id}/siswa", [GuruController::class, 'biodata_siswa'])->name("biodata_siswa");
-        // Route::get("/dashboard/eskul", [GuruController::class, 'eskul'])->name("eskul");
-        // Route::get("/ekskul/{ekskul}/siswa", [GuruController::class, 'list_eskul'])->name("list_eskul");
-        // Route::get("/ekskul/{id}/absensi", [GuruController::class, 'absen_eskul'])->name("ekskul_absen");
     });
 
-    Route::middleware("SiswaAdminOnly")->prefix("/siswa")->group(function () {
+    Route::middleware(" SiswaAdminOnly")->prefix("/siswa")->group(function () {
         Route::get("/update/{id}", [SiswaController::class, 'update_show'])->name("update_siswa_show");
         Route::put("/update/{id}", [SiswaController::class, 'update_post'])->name("update_siswa_post");
-        Route::get("/raport/{jurusan}", [SiswaController::class, 'raport'])->name("raport_siswa");
-        Route::get("/raport/{jurusan}/print", [SiswaController::class, 'raport_print'])->name("raport_print");
-        Route::get("/rangking", [SiswaController::class, 'rangking'])->name("rangking_siswa");
         Route::get("/list/walikelas", [SiswaController::class, 'profil_walikelas'])->name("profil_walikelas");
         Route::get("/profil/{id}/walikelas", [SiswaController::class, 'walikelas'])->name("walikelas");
+
+        Route::middleware("siswaOnly")->group(function () {
+            Route::get("/raport/{jurusan}", [SiswaController::class, 'raport'])->name("raport_siswa");
+            Route::get("/raport/{jurusan}/print", [SiswaController::class, 'raport_print'])->name("raport_print");
+            Route::get("/rangking", [SiswaController::class, 'rangking'])->name("rangking_siswa");
+        });
     });
 });
