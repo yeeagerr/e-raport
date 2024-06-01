@@ -56,7 +56,10 @@
                 <b>Admin</b>
                 @endif
             </p>
+            @include('component.update_links')
+
         </div>
+
     </div>
     @include('component.Sidelist')
 

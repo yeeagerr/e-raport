@@ -40,14 +40,14 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
 
     Route::middleware("admin")->group(function () {
         Route::get("/update", [AdminController::class, 'update_show'])->name("update_admin_show");
-        Route::post("/update/{id}", [AdminController::class, 'update_post'])->name("update_admin_post");
+        Route::put("/update/{id}", [AdminController::class, 'update_post'])->name("update_admin_post");
         Route::get("/update/{id}/siswa", [AdminController::class, 'input_nilai'])->name("update_input_siswa");
     });
 
 
     Route::middleware("GuruAdminOnly")->prefix("guru")->group(function () {
         Route::get("/update", [GuruController::class, 'update_show'])->name("update_guru_show");
-        Route::post("/update/{id}", [GuruController::class, 'update_post'])->name("update_guru_post");
+        Route::put("/update/{id}", [GuruController::class, 'update_post'])->name("update_guru_post");
         Route::get("/dashboard/{page}/list", [GuruController::class, 'kelas'])->name("kelas_guru");
         Route::get("/kelas/{id}/input", [GuruController::class, 'kelas_input'])->name("kelas_guru_input");
         Route::post("/kelas/{id}/input", [GuruController::class, 'kelas_input_post'])->name("kelas_guru_input_post");
@@ -60,7 +60,7 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
 
     Route::middleware("SiswaAdminOnly")->prefix("/siswa")->group(function () {
         Route::get("/update/{id}", [SiswaController::class, 'update_show'])->name("update_siswa_show");
-        Route::post("/update/{id}", [SiswaController::class, 'update_post'])->name("update_siswa_post");
+        Route::put("/update/{id}", [SiswaController::class, 'update_post'])->name("update_siswa_post");
         Route::get("/raport", [SiswaController::class, 'raport'])->name("raport_siswa");
         Route::get("/rangking", [SiswaController::class, 'rangking'])->name("rangking_siswa");
         Route::get("/list/walikelas", [SiswaController::class, 'profil_walikelas'])->name("profil_walikelas");

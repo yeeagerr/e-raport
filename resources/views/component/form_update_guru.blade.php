@@ -1,4 +1,6 @@
 <form action="{{route('update_guru_post', $user->id)}}" method="POST">
+    @method('PUT')
+
     @csrf
     <b class="update-data-siswa1">UPDATE ACCOUNT SISWA</b>
 
