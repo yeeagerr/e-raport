@@ -1,4 +1,5 @@
-<form class="relative w-96 h-[500px]">
+<form class="relative w-96 h-[500px]" action="{{route('register_siswa_post')}}" method="POST">
+    @csrf
     <div
         class="absolute top-0 left-0 w-full h-full bg-red-800 rounded-2xl shadow max-sm:left-[-32px]  max-md:left-[-32px] max-lg:left-[-32px]">
         <h2 class="relative text-2xl text-white font-bold text-black text-center">SIGN-UP AS SISWA</h2>
@@ -10,13 +11,13 @@
         <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">Nama</label>
         <input
             class="bg-white-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10"
-            type="name" />
+            type="name" name="nama" />
         <div
             class="absolute top-8 left-15 -ml-4 w-[70%] h-[9%] bg-red-800 rounded-3xl shadow z-0   max-sm:-ml-1  md:-ml-1">
         </div>
 
         <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">Nisn</label>
-        <input
+        <input name="nisn"
             class="bg-white-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10"
             type="name" />
         <div
@@ -24,36 +25,44 @@
         </div>
 
         <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">Kelas</label>
-        <input
-            class="bg-white-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10"
-            type="name" />
+        <select
+            class="bg-white-200  text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10"
+            name="kelas">
+            <option value="NULL">Pilih Kelas</option>
+            @foreach ($kelas as $i)
+            <option value="{{$i->id}}">{{$i->nama_kelas}}</option>
+            @endforeach
+        </select>
+        {{-- <input type="name"
+            class="bg-white-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10" />
+        --}}
         <div
             class="absolute top-[164px] left-15 -ml-4 w-[70%] h-[9%] bg-red-800 rounded-3xl shadow z-0   max-sm:-ml-1  md:-ml-1">
-        </div>
-
-        <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">No. Handphone</label>
-        <input
-            class="bg-white-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10"
-            type="name" />
-        <div
-            class="absolute top-[232px] left-15 -ml-4 w-[70%] h-[9%] bg-red-800 rounded-3xl shadow z-0   max-sm:-ml-1  md:-ml-1">
         </div>
 
         <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">Username</label>
         <input
             class="bg-white-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10"
-            type="name" />
+            type="name" name="username" />
         <div
-            class="absolute top-[298px] left-15 -ml-4 w-[70%] h-[9%] bg-red-800 rounded-3xl shadow z-0   max-sm:-ml-1  md:-ml-1">
+            class="absolute top-[232px] left-15 -ml-4 w-[70%] h-[9%] bg-red-800 rounded-3xl shadow z-0   max-sm:-ml-1  md:-ml-1">
         </div>
 
         <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">Password</label>
         <input
             class="bg-white-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10"
+            type="name" name="password" />
+        <div
+            class="absolute top-[298px] left-15 -ml-4 w-[70%] h-[9%] bg-red-800 rounded-3xl shadow z-0   max-sm:-ml-1  md:-ml-1">
+        </div>
+
+        {{-- <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">Password</label>
+        <input
+            class="bg-white-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-3xl py-2 px-4 block w-[60%] h-[7%] appearance-none relative z-10"
             type="password" />
         <div
             class="absolute top-[364px] left-15 -ml-4 w-[70%] h-[9%] bg-red-800 rounded-3xl shadow z-0   max-sm:-ml-1  md:-ml-1">
-        </div>
+        </div> --}}
 
         <div class="grid grid-flow-col gap-3 mt-5">
             <div class="col-span-4 relative flex justify-center items-center flex flex-wrap justify-center gap-6"
