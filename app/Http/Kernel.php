@@ -72,6 +72,8 @@ class Kernel extends HttpKernel
         'preventBack' => \App\Http\Middleware\PreventBackHistory::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'siswaOnly' => \App\Http\Middleware\SiswaOnly::class,
+        'alreadyLogin' => \App\Http\Middleware\RegLogCheck::class,
+
 
     ];
 }

@@ -19,21 +19,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware("alreadyLogin")->group(function () {
+    Route::prefix("/login")->group(function () {
+        Route::get('/', [AuthController::class, 'index'])->name("login");
+        Route::get("/admin", [AuthController::class, 'admin']);
+        Route::post("/admin", [AuthController::class, 'admin_login'])->name("login_admin");
+        Route::post('/siswa', [AuthController::class, 'siswa'])->name("login_siswa");
+        Route::post('/guru', [AuthController::class, 'guru'])->name("login_guru");
+    });
 
-Route::prefix("/login")->group(function () {
-    Route::get('/', [AuthController::class, 'index'])->name("login");
-    Route::get("/admin", [AuthController::class, 'admin']);
-    Route::post("/admin", [AuthController::class, 'admin_login'])->name("login_admin");
-    Route::post('/siswa', [AuthController::class, 'siswa'])->name("login_siswa");
-    Route::post('/guru', [AuthController::class, 'guru'])->name("login_guru");
-});
-
-Route::prefix("/register")->group(function () {
-    Route::get('/', [RegisterController::class, 'register'])->name("register");
-    Route::get('/siswa', [RegisterController::class, 'siswa'])->name("register_siswa");
-    Route::post('/siswa', [RegisterController::class, 'siswa_create'])->name("register_siswa_post");
-    Route::get('/guru', [RegisterController::class, 'guru'])->name("register_guru");
-    Route::post('/guru', [RegisterController::class, 'guru_create'])->name("register_guru_post");
+    Route::prefix("/register")->group(function () {
+        Route::get('/', [RegisterController::class, 'register'])->name("register");
+        Route::get('/siswa', [RegisterController::class, 'siswa'])->name("register_siswa");
+        Route::post('/siswa', [RegisterController::class, 'siswa_create'])->name("register_siswa_post");
+        Route::get('/guru', [RegisterController::class, 'guru'])->name("register_guru");
+        Route::post('/guru', [RegisterController::class, 'guru_create'])->name("register_guru_post");
+    });
 });
 
 Route::middleware(["AuthCheck", "preventBack"])->group(function () {
