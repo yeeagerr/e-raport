@@ -1,4 +1,5 @@
 <form action="{{route('update_siswa_post', $siswa->id)}}" method="POST">
+    @method('PUT')
     @csrf
     <b class="update-data-siswa1">UPDATE ACCOUNT SISWA</b>
 
@@ -9,6 +10,15 @@
             <div class="username-text78">Nama</div>
         </div>
     </div>
+    @if (!$user->nuptk && !$user->nisn)
+    <div class="gerak1">
+        <div class="nama34">
+            <div class="bar-red90"></div>
+            <input type="text" name="nisn" class="bar-white90" value="{{$siswa->nisn}}" />
+            <div class="username-text78">Nisn</div>
+        </div>
+    </div>
+    @else
     <div class="gerak1">
         <div class="nama34">
             <div class="bar-red90"></div>
@@ -16,11 +26,15 @@
             <div class="username-text78">Nisn</div>
         </div>
     </div>
+    @endif
 
-    {{-- <div class="gerak1">
+
+
+    @if (!$user->nuptk && !$user->nisn)
+    <div class="gerak1">
         <div class="nama34">
             <div class="bar-red90"></div>
-            <select type="text" class="bar-white90">
+            <select type="text" class="bar-white90" name="kelas">
                 @foreach ($kelas as $i)
                 <option value="{{$i->nama_kelas}}" {{$siswa->kelas_siswa->nama_kelas == $i->nama_kelas ? "selected" :
                     ""}}>{{$i->nama_kelas}}</option>
@@ -28,7 +42,8 @@
             </select>
             <div class="username-text78">Kelas</div>
         </div>
-    </div> --}}
+    </div>
+    @endif
 
     <div class="gerak1">
         <div class="nama34">

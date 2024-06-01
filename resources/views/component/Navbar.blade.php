@@ -1,35 +1,28 @@
-<nav>
-    <nav>
-        <input type="checkbox" id="sidebar-active">
-        <label for="sidebar-active" class="open-sidebar-button">
-            <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32">
-                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-            </svg>
-        </label>
-        <label id="overlay" for="sidebar-active"></label>
-        <div class="links-container">
-            <label for="sidebar-active" class="close-sidebar-button">
-                <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32">
-                    <path
-                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                </svg>
-            </label>
+<header class="lg:px-16 px-4 bg-red-800 flex flex-wrap items-center py-4 shadow-md">
+    <img src="{{asset('asset/others/LOGO.png')}}" class="max-md:hidden max-sm:hidden" width="100px" alt="">
+    <div class="flex-1 flex justify-between items-center">
+        <a href="#" class="text-4xl text-white font-extrabold max-md:hidden max-sm:hidden">E - RAPORT SMK MULTISTUDI
+            HIGH SCHOOL BATAM</a>
+    </div>
 
-            <div class="gambar">
-                <img src="{{asset('asset/others/LOGO.png')}}" alt="" width="70x">
-            </div>
-            <div class="text1">
-                <h1>E RAPORT SMK MULTISTUDI HIGH SCHOOL BATAM</h1>
-            </div>
-            <a class="home-link" href="index.html"></a>
-            <a href="#"><img src="{{asset('asset/others/CUSTOMER SERVICE BUTTON.png')}}" alt="" width="60px"></a>
-            <a href="#"><img src="{{asset('asset/others/NOTIFICATION BUTTON.png')}}" alt="" width="60px"></a>
-            <form action="{{route('logout')}}" method="POST">
-                @csrf
-                <button type="submit" style="background-color: transparent; border:none; margin-right: 25px;"
-                    href="#"><img src="{{asset('asset/others/SIGN OUT BUTTON.png')}}" alt="" width="60px"></button>
-            </form>
-        </div>
-    </nav>
+    <label for="menu-toggle" class="pointer-cursor md:hidden block">
+    </label>
+    <input class="hidden" type="checkbox" id="menu-toggle">
 
-</nav>
+    <div class="hidden md:flex md:items-center md:w-auto w-full" id="menu">
+        <nav>
+            <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                <li><a href=""><img width="100px" src="{{asset('asset/others/CUSTOMER SERVICE BUTTON.png')}}"
+                            class="md:p-4 py-3 px-0 block"></a></li>
+                <li><a href=""><img width="95px" src="{{asset('asset/others/NOTIFICATION BUTTON.png')}}"
+                            class="md:p-4 py-3 px-0 block"></a></li>
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <button type="submit"><img width="95px" src="{{asset('asset/others/SIGN OUT BUTTON.png')}}"
+                            class="md:p-4 py-3 px-0 block"></button>
+                </form>
+
+            </ul>
+        </nav>
+    </div>
+</header>

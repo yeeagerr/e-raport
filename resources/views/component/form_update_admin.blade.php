@@ -1,4 +1,5 @@
 <form action="{{route('update_admin_post', $user->id)}}" method="POST">
+    @method('PUT')
     @csrf
     <b class="update-data-siswa1">UPDATE ACCOUNT ADMIN</b>
 

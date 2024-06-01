@@ -75,19 +75,25 @@ class GuruController extends Controller
         return view("Pages.guru.absensi_ekskul", compact('user', 'id'));
     }
 
-    public function update_show()
+    public function update_show(Guru $id)
     {
         $user = session("user");
-        return view("Pages.guru.update", compact('user'));
+        $kelas = Kela::all();
+        return view("Pages.guru.update", compact('user', 'kelas', 'id'));
     }
 
     public function update_post(Guru $id, Request $request)
     {
+        $request->validate([
+            'nama' => 'required',
+            'username' => 'required',
+        ]);
 
         if ($request->password) {
             $id->update([
                 'nama' => $request->nama,
                 'nuptk' => $request->nuptk,
+                'kela_id' => $request->kelas ?? null,
                 'username' => $request->username,
                 'password' => Hash::make($request->password)
             ]);
@@ -95,6 +101,7 @@ class GuruController extends Controller
 
         $id->update([
             'nama' => $request->nama,
+            'kela_id' => $request->kelas ?? null,
             'nuptk' => $request->nuptk,
             'username' => $request->username
         ]);

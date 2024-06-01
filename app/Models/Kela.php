@@ -18,7 +18,7 @@ class Kela extends Model
 
     public function hasGuru()
     {
-        return $this->hasMany(Guru::class, 'kela_id', 'id');
+        return $this->hasOne(Guru::class, 'kela_id', 'id');
     }
 
     public function hasSiswa()

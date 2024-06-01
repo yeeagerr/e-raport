@@ -19,4 +19,9 @@ class Nilai extends Model
     public $timestamps = false;
 
     protected $table = 'nilai';
+
+    public function MapelNilai()
+    {
+        return $this->belongsTo(Mapel::class, 'mapel_id', 'id');
+    }
 }
