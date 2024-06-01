@@ -1,38 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="{{asset('css/auth/register_guru.css')}}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="form-sign-up-siswa">
-            <div class="wrapper-background-white-and-r">
-                <img class="background-white-and-red-1" alt="" src="./public/background-white-and-red-1@2x.png" />
+
+    <!-- https://play.tailwindcss.com/MIwj5Sp9pw -->
+    <div class="h-screen flex items-center">
+        <div
+            class="flex w-full bg-white rounded-2xl shadow-[0_20px_50px_rgba(8,_0,_0,_0.5)] overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+            <div class="hidden lg:block lg:w-1/2 bg-cover"
+                style="background-image:url({{asset('asset/login_register/gerbang.png')}})">
             </div>
-            <div class="alas-belakang"></div>
-            <section class="user-frame">
-                <div class="userframe-container">
-                    <div class="alas-login"></div>
-
-                    @include('component.FormRegister_guru')
-
-                    <img class="mhs-pic-icon" loading="eager" alt=""
-                        src="{{asset('asset/login_register/gerbang.png')}}" />
-
+            <div class="w-full p-8 shadow-xl lg:w-1/2">
+                <div
+                    class="absolute w-[130px] h-[130px] bg-white-100 top-[7%] rounded-full flex justify-center items-center text-center p-5 shadow-xl  md:ms-[100px] max-sm:ms-[100px]">
+                    <img width="66px" src="{{asset('asset/others/LOGO.png')}}" alt="lg">
                 </div>
-                <div class="logo-mhs">
-                    <div class="lingkaran"></div>
-                    <img class="logo-mhs-icon" loading="eager" alt=""
-                        src="{{asset('asset/login_register/LOGO MHS.png')}}" />
-                </div>
-            </section>
+                @include('component.FormRegister_guru')
+            </div>
         </div>
     </div>
 </body>
