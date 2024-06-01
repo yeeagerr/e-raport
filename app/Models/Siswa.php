@@ -31,4 +31,9 @@ class Siswa extends Model implements Authenticatable
     {
         return $this->hasMany(Ekskul::class, 'siswa_id', 'id');
     }
+
+    public function hasNilai()
+    {
+        return $this->hasMany(Nilai::class, "siswa_id", 'id');
+    }
 }

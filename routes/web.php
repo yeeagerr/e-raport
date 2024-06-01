@@ -63,7 +63,8 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
     Route::middleware("SiswaAdminOnly")->prefix("/siswa")->group(function () {
         Route::get("/update/{id}", [SiswaController::class, 'update_show'])->name("update_siswa_show");
         Route::put("/update/{id}", [SiswaController::class, 'update_post'])->name("update_siswa_post");
-        Route::get("/raport", [SiswaController::class, 'raport'])->name("raport_siswa");
+        Route::get("/raport/{jurusan}", [SiswaController::class, 'raport'])->name("raport_siswa");
+        Route::get("/raport/{jurusan}/print", [SiswaController::class, 'raport_print'])->name("raport_print");
         Route::get("/rangking", [SiswaController::class, 'rangking'])->name("rangking_siswa");
         Route::get("/list/walikelas", [SiswaController::class, 'profil_walikelas'])->name("profil_walikelas");
         Route::get("/profil/{id}/walikelas", [SiswaController::class, 'walikelas'])->name("walikelas");

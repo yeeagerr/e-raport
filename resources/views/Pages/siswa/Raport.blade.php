@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <title>Document</title>
+    <link rel="stylesheet" href="{{asset('css/others/raport.css')}}">
 </head>
 
 <body>
@@ -49,12 +50,9 @@
                             </div>
                             <div
                                 class="grid grid-cols-12 flex relative left-[15%] max-sm:left-[-0%] max-xl:left-[0%] flex-col mt-5 gap-10 max-sm:flex">
-                                <div class="col-span-4">
-                                    <div class="relative bg-white w-full h-[500px] rounded-lg shadow">
-                                        <img class="w-full h-full rounded-lg"
-                                            src="{{asset('asset/others/Tampilan-Raport-V 1.png')}}" alt="">
-                                    </div>
-                                </div>
+
+                                @include('component.raport')
+
                                 <div class="col-span-4 mt-10 max-sm:flex">
                                     <div class="relative w-96 h-[500px]">
                                         <label class="mt-2 block text-gray-700 text-sm font-bold mb-2">Nama</label>
@@ -106,8 +104,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#"
-                            class="mt-[-50px] me-10 float-end border-2 border-sky-500relative mt-6 items-center content-center text-center py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-red-800 before:to-red-800 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+                        <a href="{{route('raport_print', $jurusan)}}"
+                            class="mt-[-50px] me-10 float-end border-2  border-sky-500 relative z-10 mt-6 items-center content-center text-center py-2 px-8 text-black text-base font-bold nded-full overflow-hidden bg-white rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-red-800 before:to-red-800 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
                             Cetak Raport
                         </a>
             </section>

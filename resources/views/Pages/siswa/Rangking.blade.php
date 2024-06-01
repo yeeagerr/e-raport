@@ -45,92 +45,57 @@
                                     </div>
                                     <div class="flex flex-col mt- gap-2 py-2">
                                         <p class="ms-4 text-white text-md">Selamat Datang</p>
-                                        <p class="ms-4 text-white text-xl font-extrabold">USER | KELAS</p>
-                                        <p class="ms-4 text-white text-md">Rata Rata Nilai : 9.99</p>
+                                        <p class="ms-4 text-white text-xl font-extrabold">{{$user->nama}} |
+                                            {{$user->kelas_siswa->nama_kelas}}</p>
+                                        @foreach ($siswa as $i)
+                                        @if ($i->id == $user->id)
+                                        <p class="ms-4 text-white text-md">Rata Rata Nilai : {{$i->rata}}</p>
+                                        @endif
+                                        @endforeach
                                     </div>
                                 </div>
+                                @php
+                                $count=1;
+                                $count2=1;
+                                @endphp
+                                @foreach ($siswa as $i)
+                                @php
+                                $count2++;
+                                @endphp
+                                @if ($i->id == $user->id)
                                 <h1
                                     class=" me-10 font-extrabold mt-[-60px] text-3xl text-white max-sm:hidden text-end text-start">
-                                    Rank : 01</h1>
+                                    Rank : {{$count2 < 10 ? "0" : "" }}{{$count2}}</h1>
+                                        @endif
+                                        @endforeach
+
                             </div>
 
                             <div class="w-full h-[70%] mt-3  min-h-0 min-w-0 overflow-auto overflow-x-hidden">
+
+                                @foreach ($siswa as $i)
+
                                 <div class="bg-red-700 flex w-[100%] h-40 rounded-2xl mb-3">
                                     <h1
                                         class="pt-[58px] ms-10 max-sm:ms-1 font-extrabold text-5xl text-white max-sm:text-[20px]">
-                                        01</h1>
-                                    <div
-                                        class="relative mt-[45px] ms-10 max-sm:ms-1 w-20 h-20 max-sm:w-15 max-sm:h-15 bg-white rounded-full flex justify-center items-center text-center p-5 shadow-xl">
-                                        <img src="{{asset('asset/others/Human.png')}}" class="relative max-sm:w-[20px]"
-                                            width="50px" alt="">
-                                    </div>
-                                    <div class="flex flex-col gap-2 mt-10 py-2">
-                                        <p
-                                            class="ms-10 text-white text-2xl font-extrabold max-sm:text-[15px] max-sm:ms-1">
-                                            Muhammad fariel putra ariandi | XI PPLG 1</p>
-                                        <p class="ms-10 text-white text-lg max-sm:text-[10px] max-sm:ms-1">Rata Rata
-                                            Nilai : Unknown</p>
+                                        {{$count < 10 ? "0" : "" }}{{$count++}}</h1>
+                                            <div
+                                                class="relative mt-[45px] ms-10 max-sm:ms-1 w-20 h-20 max-sm:w-15 max-sm:h-15 bg-white rounded-full flex justify-center items-center text-center p-5 shadow-xl">
+                                                <img src="{{asset('asset/others/Human.png')}}"
+                                                    class="relative max-sm:w-[20px]" width="50px" alt="">
+                                            </div>
+                                            <div class="flex flex-col gap-2 mt-10 py-2">
+                                                <p
+                                                    class="ms-10 text-white text-2xl font-extrabold max-sm:text-[15px] max-sm:ms-1">
+                                                    {{$i->nama}} | {{$i->kelas_siswa->nama_kelas}}</p>
 
-                                    </div>
+                                                <p class="ms-10 text-white text-lg max-sm:text-[10px] max-sm:ms-1">Rata
+                                                    Rata
+                                                    Nilai : {{$i->rata}}</p>
 
+                                            </div>
                                 </div>
-                                <div class="bg-red-700 flex w-[100%] h-40 rounded-2xl mb-3">
-                                    <h1
-                                        class="pt-[58px] ms-10 max-sm:ms-1 font-extrabold text-5xl text-white max-sm:text-[20px]">
-                                        01</h1>
-                                    <div
-                                        class="relative mt-[45px] ms-10 max-sm:ms-1 w-20 h-20 max-sm:w-15 max-sm:h-15 bg-white rounded-full flex justify-center items-center text-center p-5 shadow-xl">
-                                        <img src="{{asset('asset/others/Human.png')}}" class="relative max-sm:w-[20px]"
-                                            width="50px" alt="">
-                                    </div>
-                                    <div class="flex flex-col gap-2 mt-10 py-2">
-                                        <p
-                                            class="ms-10 text-white text-2xl font-extrabold max-sm:text-[15px] max-sm:ms-1">
-                                            Muhammad fariel putra ariandi | XI PPLG 1</p>
-                                        <p class="ms-10 text-white text-lg max-sm:text-[10px] max-sm:ms-1">Rata Rata
-                                            Nilai : Unknown</p>
-
-                                    </div>
-
-                                </div>
-                                <div class="bg-red-700 flex w-[100%] h-40 rounded-2xl mb-3">
-                                    <h1
-                                        class="pt-[58px] ms-10 max-sm:ms-1 font-extrabold text-5xl text-white max-sm:text-[20px]">
-                                        01</h1>
-                                    <div
-                                        class="relative mt-[45px] ms-10 max-sm:ms-1 w-20 h-20 max-sm:w-15 max-sm:h-15 bg-white rounded-full flex justify-center items-center text-center p-5 shadow-xl">
-                                        <img src="{{asset('asset/others/Human.png')}}" class="relative max-sm:w-[20px]"
-                                            width="50px" alt="">
-                                    </div>
-                                    <div class="flex flex-col gap-2 mt-10 py-2">
-                                        <p
-                                            class="ms-10 text-white text-2xl font-extrabold max-sm:text-[15px] max-sm:ms-1">
-                                            Muhammad fariel putra ariandi | XI PPLG 1</p>
-                                        <p class="ms-10 text-white text-lg max-sm:text-[10px] max-sm:ms-1">Rata Rata
-                                            Nilai : Unknown</p>
-
-                                    </div>
-
-                                </div>
-                                <div class="bg-red-700 flex w-[100%] h-40 rounded-2xl mb-3">
-                                    <h1
-                                        class="pt-[58px] ms-10 max-sm:ms-1 font-extrabold text-5xl text-white max-sm:text-[20px]">
-                                        01</h1>
-                                    <div
-                                        class="relative mt-[45px] ms-10 max-sm:ms-1 w-20 h-20 max-sm:w-15 max-sm:h-15 bg-white rounded-full flex justify-center items-center text-center p-5 shadow-xl">
-                                        <img src="{{asset('asset/others/Human.png')}}" class="relative max-sm:w-[20px]"
-                                            width="50px" alt="">
-                                    </div>
-                                    <div class="flex flex-col gap-2 mt-10 py-2">
-                                        <p
-                                            class="ms-10 text-white text-2xl font-extrabold max-sm:text-[15px] max-sm:ms-1">
-                                            Muhammad fariel putra ariandi | XI PPLG 1</p>
-                                        <p class="ms-10 text-white text-lg max-sm:text-[10px] max-sm:ms-1">Rata Rata
-                                            Nilai : Unknown</p>
-
-                                    </div>
-
-                                </div>
+                                @endforeach
 
 
                             </div>

@@ -30,7 +30,8 @@
 @endif
 
 @if($user->nisn ?? "")
-<a href="{{route('raport_siswa')}}" class="bg-red-800 w-full h-24 min-h-0 mt-5 rounded-3xl min-w-0 mb-4">
+<a href="{{route('raport_siswa', $user->kelas_siswa->jurusan)}}"
+    class="bg-red-800 w-full h-24 min-h-0 mt-5 rounded-3xl min-w-0 mb-4">
     <p class="text-center mt-7 items-center text-white text-2xl font-bold">Raport Siswa</p>
 </a>
 <a href="{{route('rangking_siswa')}}" class="bg-red-800 w-full h-24 min-h-0 mt-5 rounded-3xl min-w-0 mb-4">

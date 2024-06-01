@@ -102,7 +102,7 @@
                                     <div
                                         class="max-w-sm mx-auto w-full  sm:h-full bg-red-800 rounded-xl overflow-hidden shadow-lg">
                                         <div class="border-b px-4 pb-6">
-                                            <form class="text-center my-4"
+                                            <form class="text-center my-4" enctype="multipart/form-data"
                                                 action="{{route('kelas_guru_input_post', $kelas->id)}}" method="POST">
                                                 @csrf
                                                 <div class="py-2">
