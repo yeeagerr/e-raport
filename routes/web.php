@@ -5,9 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PubController;
 use App\Http\Controllers\RegisterController;
-use App\Imports\GuruImport;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
-use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,11 +59,11 @@ Route::middleware(["AuthCheck", "preventBack"])->group(function () {
     });
 
     Route::middleware("SiswaAdminOnly")->prefix("/siswa")->group(function () {
-        Route::get("/update/{id}", [PubController::class, 'update_show'])->name("update_siswa_show");
-        Route::post("/update/{id}", [PubController::class, 'update_post'])->name("update_siswa_post");
-        Route::get("/raport", [PubController::class, 'raport'])->name("raport_siswa");
-        Route::get("/rangking", [PubController::class, 'rangking'])->name("rangking_siswa");
-        Route::get("/list/walikelas", [PubController::class, 'profil_walikelas'])->name("profil_walikelas");
-        Route::get("/profil/{id}/walikelas", [PubController::class, 'walikelas'])->name("walikelas");
+        Route::get("/update/{id}", [SiswaController::class, 'update_show'])->name("update_siswa_show");
+        Route::post("/update/{id}", [SiswaController::class, 'update_post'])->name("update_siswa_post");
+        Route::get("/raport", [SiswaController::class, 'raport'])->name("raport_siswa");
+        Route::get("/rangking", [SiswaController::class, 'rangking'])->name("rangking_siswa");
+        Route::get("/list/walikelas", [SiswaController::class, 'profil_walikelas'])->name("profil_walikelas");
+        Route::get("/profil/{id}/walikelas", [SiswaController::class, 'walikelas'])->name("walikelas");
     });
 });
